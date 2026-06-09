@@ -1,12 +1,12 @@
 :root {
-  --black: #070707;
-  --panel: rgba(12, 12, 12, 0.86);
+  --black: #050505;
+  --panel: rgba(13, 13, 13, 0.92);
   --panel-soft: rgba(255, 255, 255, 0.045);
   --gold: #c9a227;
-  --gold-light: #d6b84a;
+  --gold-light: #e0c56a;
   --white: #f7f4ec;
   --muted: rgba(247, 244, 236, 0.72);
-  --line: rgba(201, 162, 39, 0.72);
+  --line: rgba(201, 162, 39, 0.68);
 }
 
 * {
@@ -23,28 +23,30 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
   color: var(--white);
   background:
-    linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.88)),
-    radial-gradient(circle at top, rgba(201, 162, 39, 0.22), transparent 38%),
-    var(--black);
+    radial-gradient(circle at top, rgba(201, 162, 39, 0.20), transparent 34%),
+    linear-gradient(180deg, #15110a 0%, #070707 42%, #030303 100%);
 }
 
 .page {
   width: min(100%, 430px);
   margin: 0 auto;
-  padding: 34px 18px 42px;
+  padding: 28px 16px 42px;
 }
 
 .hero {
   padding: 30px 18px 28px;
   border: 1px solid rgba(201, 162, 39, 0.52);
-  background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015)),
+    rgba(0, 0, 0, 0.34);
   text-align: center;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
 }
 
 .brand {
   margin: 0;
   font-family: "Times New Roman", serif;
-  font-size: 32px;
+  font-size: 34px;
   font-style: italic;
   letter-spacing: 0.03em;
   color: var(--gold-light);
@@ -52,45 +54,42 @@ body {
 }
 
 .eyebrow {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   font-size: 12px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   color: var(--muted);
 }
 
-.title {
-  margin: 22px 0 0;
-  font-size: 25px;
-  letter-spacing: 0.04em;
+h1 {
+  margin: 24px 0 0;
+  font-size: 28px;
+  letter-spacing: 0.08em;
   font-weight: 700;
 }
 
-.title-line {
-  width: 92px;
-  height: 1px;
-  margin: 18px auto 0;
-  background: var(--gold);
-}
-
 .lead {
-  margin: 20px 0 0;
+  margin: 22px 0 0;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.9;
 }
 
-.section-label {
+.cast-section {
+  margin-top: 30px;
+}
+
+.section-title {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 28px 0 16px;
+  margin: 0 0 16px;
   color: var(--gold-light);
   font-size: 13px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   font-weight: 700;
 }
 
-.section-label::after {
+.section-title::after {
   content: "";
   height: 1px;
   flex: 1;
@@ -99,107 +98,87 @@ body {
 
 .cast-list {
   display: grid;
-  gap: 16px;
+  gap: 20px;
 }
 
 .cast-card {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--panel);
-  scroll-margin-top: 18px;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(214, 184, 74, 0.08), transparent 42%),
+    var(--panel);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.42);
 }
 
 .cast-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(214, 184, 74, 0.10), transparent 38%);
+  background:
+    radial-gradient(circle at top right, rgba(201, 162, 39, 0.12), transparent 30%);
   pointer-events: none;
+  z-index: 1;
 }
 
-.cast-image {
-  height: 260px;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.45)),
-    radial-gradient(circle at center 34%, rgba(255,255,255,0.24), transparent 22%),
-    linear-gradient(135deg, #2b211f, #090909 58%, #34230f);
-  display: grid;
-  place-items: center;
+.photo {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  background: #111;
   border-bottom: 1px solid rgba(201, 162, 39, 0.38);
 }
 
-.photo-placeholder {
-  width: 104px;
-  height: 104px;
-  border-radius: 50%;
-  border: 1px solid rgba(201, 162, 39, 0.72);
-  display: grid;
-  place-items: center;
-  color: rgba(247, 244, 236, 0.70);
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  background: rgba(0,0,0,0.22);
-  backdrop-filter: blur(3px);
+.photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
 }
 
-.cast-body {
+.cast-info {
   position: relative;
-  padding: 20px 18px 22px;
+  z-index: 2;
+  padding: 22px 18px 24px;
 }
 
-.cast-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 12px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.cast-name-ja {
+.cast-info h2 {
   margin: 0;
-  font-size: 24px;
+  font-size: 27px;
   letter-spacing: 0.08em;
   font-weight: 700;
 }
 
-.cast-name-en {
-  margin: 6px 0 0;
+.roman {
+  margin: 7px 0 0;
   color: var(--gold-light);
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-size: 12px;
+  letter-spacing: 0.24em;
 }
 
-.cast-meta {
-  flex: 0 0 auto;
-  padding: 7px 10px;
-  border: 1px solid rgba(201, 162, 39, 0.62);
-  color: var(--gold-light);
-  font-size: 13px;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-
-.cast-copy {
-  margin: 15px 0 0;
+.copy {
+  margin: 17px 0 0;
   color: var(--muted);
   font-size: 13px;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
-.tag-row {
+.tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 17px;
 }
 
-.tag {
-  padding: 5px 9px;
+.tags span {
+  padding: 6px 10px;
   background: var(--panel-soft);
   border: 1px solid rgba(255, 255, 255, 0.10);
-  color: rgba(247, 244, 236, 0.78);
+  border-radius: 999px;
+  color: rgba(247, 244, 236, 0.80);
   font-size: 11px;
 }
 
@@ -207,13 +186,14 @@ body {
   margin: 24px 0 0;
   padding: 16px 14px;
   border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
   color: rgba(247, 244, 236, 0.62);
   font-size: 12px;
   line-height: 1.8;
   background: rgba(255, 255, 255, 0.035);
 }
 
-.footer {
+footer {
   margin-top: 34px;
   text-align: center;
   color: rgba(201, 162, 39, 0.78);
@@ -223,17 +203,23 @@ body {
   letter-spacing: 0.04em;
 }
 
+/* 写真ごとの見え方調整 */
+.cast-card:nth-child(1) .photo img {
+  object-position: center top;
+}
+
+.cast-card:nth-child(2) .photo img {
+  object-position: center center;
+}
+
+.cast-card:nth-child(3) .photo img {
+  object-position: center top;
+}
+
+/* PCで見ても横に広がりすぎないように固定 */
 @media (min-width: 720px) {
   .page {
-    width: min(100%, 960px);
-    padding: 46px 24px 64px;
-  }
-
-  .cast-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero {
-    padding: 42px 30px 38px;
+    width: 430px;
+    padding-top: 46px;
   }
 }
